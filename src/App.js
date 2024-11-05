@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FilterTrips from './components/FilterTrips';
+import Carousel from './components/Carousel';
 function App() {
   
   return (
@@ -14,6 +15,7 @@ function App() {
    <Route path="/" element={<Hero />} />
    </Routes>
    <FilterTrips/>
+   <Carousel/>
    
     </div>
     </BrowserRouter>

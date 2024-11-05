@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { FaLocationDot, FaRegClock } from 'react-icons/fa6'
 import { FaCalendarAlt } from 'react-icons/fa'
+import indiaLocations from '../india_locations.json'
 const Hero = () => {
   const videoRef = useRef(null)
   const [suggestions, setSuggestions] = useState([])
@@ -31,9 +32,6 @@ const Hero = () => {
 
   // Sample data for dropdowns
   const dayNightOptions = ['5D/4N', '6D/5N', '10D/9N', 'Not decided']
-  const handleDayNightChange = e => {
-    setSelectedDayNight(e.target.value)
-  }
   const monthYearOptions = [
     'December 2024',
     'January 2025',
@@ -50,10 +48,44 @@ const Hero = () => {
   }, [])
 
   const handleInputChange = e => {
-    setInputValue(e.target.value)
+    const value = e.target.value
+    setInputValue(value)
     // Here you can implement logic to filter suggestions based on inputValue
     // For simplicity, let's use static data
-    setSuggestions(inputValue ? ['Suggestion 1', 'Suggestion 2'] : [])
+    if (value.length < 2) {
+      setSuggestions([])
+      return
+    }
+    const filteredSuggestions = new Set()
+    indiaLocations.forEach(location => {
+      if (location.state.toLowerCase().includes(value.toLowerCase())) {
+        filteredSuggestions.add(location.state)
+      }
+      location.cities.forEach(city => {
+        if (city.toLowerCase().includes(value.toLowerCase())) {
+          filteredSuggestions.add(`${city} , ${location.state}`)
+        }
+      })
+      location.touristSpots.forEach(spotObj => {
+        const cityName = Object.keys(spotObj)[0]
+        const spots = spotObj[cityName]
+        if (cityName.toLowerCase().includes(value.toLowerCase())) {
+          spots.forEach(spot => {
+            filteredSuggestions.add(`${spot} , ${location.state}`)
+          })
+        } else {
+          // If city doesn't match, check tourist spots directly
+          spots.forEach(spot => {
+            if (spot.toLowerCase().includes(value.toLowerCase())) {
+              filteredSuggestions.add(`${spot} , ${location.state}`)
+            }
+          })
+        }
+      })
+    })
+    setSuggestions(Array.from(filteredSuggestions))
+    console.log(`Input Value: ${value}`)
+    console.log(`Filtered Suggestions: ${Array.from(filteredSuggestions)}`)
   }
 
   const handleSuggestionClick = suggestion => {
@@ -105,7 +137,7 @@ const Hero = () => {
         <h1 className='text-4xl md:text-5xl font-bold mb-4'>{displayedText}</h1>
 
         {/* Search Bar Section */}
-        <div className='flex justify-center items-center mt-4 w-11/12 md:w-2/3 space-x-2 bg-gray-200 p-4 rounded-xl'>
+        <div className='flex justify-center items-center mt-4 w-11/12 md:w-4/6 space-x-2 bg-gray-200 p-3 rounded-xl'>
           {/* Search Input with Suggestions */}
           <div className='relative flex flex-1 '>
             <span className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500'>
@@ -117,17 +149,21 @@ const Hero = () => {
               value={inputValue}
               onChange={handleInputChange}
               autoComplete='off'
-              className='pl-10 pr-3 py-2 border border-gray-300 rounded-lg w-full text-black text-sm flex items-center'
+              className='pl-10 pr-3 py-3 border border-gray-300 rounded-lg w-full text-black text-sm flex items-center'
             />
             {suggestions.length > 0 && (
-              <div className='absolute z-10 bg-white border border-gray-300 rounded-lg mt-10 w-full'>
+              <div className='absolute z-10 bg-white border border-gray-300 rounded-lg mt-10 w-full max-h-60 overflow-y-auto'>
                 {suggestions.map((suggestion, index) => (
                   <div
                     key={index}
                     onClick={() => handleSuggestionClick(suggestion)}
-                    className='p-2 hover:bg-gray-200 cursor-pointer text-black'
+                    className='p-2 hover:bg-gray-200 cursor-pointer text-black flex items-center flex-start pl-2'
                   >
-                    {suggestion}
+                    <FaLocationDot className='text-gray-400 mr-2' size={16} />{' '}
+                    {/* Location Dot Icon */}
+                    <span className='whitespace-normal text-sm'>
+                      {suggestion}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -135,9 +171,9 @@ const Hero = () => {
           </div>
 
           {/* Day/Night Dropdown */}
-          <div ref={dayNightRef} className='relative w-1/5 bg-white rounded-lg'>
+          <div ref={dayNightRef} className='relative w-1/6 bg-white rounded-lg'>
             <div
-              className='border border-gray-300 rounded-lg py-2 px-4 text-black text-sm flex items-center cursor-pointer'
+              className='border border-gray-300 rounded-lg py-3 px-4 text-black text-sm flex items-center cursor-pointer'
               onClick={() => setIsOpen(!isOpen)} // Toggle dropdown
             >
               <FaRegClock className='text-blue-500 mr-2' size={16} />
@@ -145,7 +181,7 @@ const Hero = () => {
                 className={
                   selectedDayNight === 'Day/Night'
                     ? 'text-gray-500'
-                    : 'text-black'
+                    : 'text-black text-sm'
                 }
               >
                 {selectedDayNight}
@@ -157,7 +193,7 @@ const Hero = () => {
                   <div
                     key={index}
                     onClick={() => handleOptionClick(option)}
-                    className='p-2 hover:bg-gray-200 cursor-pointer text-black flex flex-start pl-8'
+                    className='p-2 hover:bg-gray-200 cursor-pointer text-black text-sm flex flex-start pl-8'
                   >
                     {option}
                   </div>
@@ -169,10 +205,10 @@ const Hero = () => {
           {/* Month/Year Dropdown */}
           <div
             ref={monthYearRef}
-            className='relative w-1/4 bg-white rounded-lg '
+            className='relative w-1/6 bg-white rounded-lg '
           >
             <div
-              className='border border-gray-300 rounded-lg py-2 px-4 text-black text-sm flex items-center cursor-pointer'
+              className='border border-gray-300 rounded-lg py-3 px-4 text-black text-sm flex items-center cursor-pointer'
               onClick={() => setIsMonthYearOpen(!isMonthYearOpen)} // Toggle dropdown
             >
               <FaCalendarAlt className='text-blue-500 mr-2' size={16} />
@@ -192,7 +228,7 @@ const Hero = () => {
                   <div
                     key={index}
                     onClick={() => handleOptionClickMonth(option)}
-                    className='p-2 hover:bg-gray-200 cursor-pointer flex flex-start pl-8'
+                    className='p-2 hover:bg-gray-200 cursor-pointer text-sm flex flex-start pl-8'
                   >
                     {option}
                   </div>
@@ -201,7 +237,7 @@ const Hero = () => {
             )}
           </div>
           {/* Explore Button */}
-          <button className='bg-blue-600 text-white rounded-lg px-4 py-2 text-sm h-full flex items-center justify-center w-1/4'>
+          <button className='bg-blue-600 text-white rounded-lg px-4 py-2 text-sm h-full flex items-center justify-center w-1/5'>
             Explore
           </button>
         </div>
