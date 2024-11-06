@@ -12,9 +12,10 @@ body, html, #root, .App {
   position: relative;
   overflow: hidden;
   width: 100%; /* Full width */
-  height: 450px; /* Height of the carousel */
+  height: 450px; 
   
 }
+
 
 .carousel {
   display: flex;
@@ -48,3 +49,11 @@ body, html, #root, .App {
   transform: scale(1.05); /* Slight zoom effect on hover */
   transition: transform 0.3s ease; /* Smooth transition for the scale effect */
 }
+.state-carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Full width */
+  height: 400px; 
+  
+}
+

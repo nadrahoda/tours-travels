@@ -242,7 +242,7 @@ const FilterTrips = () => {
               {filteredCards[2] && (
                 <div
                   key={filteredCards[2].id}
-                  className='h-48 p-4 border rounded-xl shadow col-span-2 md:col-span-3'
+                  className='h-48 p-4 rounded-xl shadow col-span-2 md:col-span-3'
                   style={{
                     backgroundImage: `url(${filteredCards[2].image})`,
                     backgroundSize: 'cover',

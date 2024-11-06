@@ -1,169 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import card1 from '../assets/img1.jpg'
-import card2 from '../assets/img2.jpg'
-import card3 from '../assets/img3.jpg'
-import card4 from '../assets/img4.jpg'
-import card5 from '../assets/img5.jpg'
-import card6 from '../assets/img6.jpg'
-import card7 from '../assets/img7.jpg'
-import card8 from '../assets/img8.jpg'
-import card9 from '../assets/img9.jpg'
-import card10 from '../assets/img10.jpg'
-import card11 from '../assets/img11.jpg'
-import card12 from '../assets/img12.jpg'
-import card13 from '../assets/img13.jpg'
+import { useCards } from '../context/cardsContext'
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaClock } from 'react-icons/fa6'
 import { IoMdCalendar } from 'react-icons/io'
-const cardsData = [
-  {
-    id: 1,
-    title: 'Tour 1',
-    image: card1,
-    difficulty: 'Easy to Moderate',
-    tripName: 'Mountain Adventure',
-    location: 'Himalayas',
-    month: 'Nov-Dec',
-    duration: '4N/3D',
-    price: '₹8000',
-    rating: 4.5
-  },
-  {
-    id: 2,
-    title: 'Tour 2',
-    image: card2,
-    difficulty: 'Moderate',
-    tripName: 'Forest Expedition',
-    location: 'Western Ghats',
-    month: 'Nov-Dec',
-    duration: '5N/4D',
-    price: '₹10000',
-    rating: 4.0
-  },
-  {
-    id: 3,
-    title: 'Tour 3',
-    image: card3,
-    difficulty: 'Easy',
-    tripName: 'All Girls Kedarkantha',
-    location: 'Goa',
-    month: 'Nov-Dec',
-    duration: '3N/2D',
-    price: '₹9000',
-    rating: 4.7
-  },
-  {
-    id: 4,
-    title: 'Tour 4',
-    image: card4,
-    difficulty: 'Moderate',
-    tripName: 'Desert Safari',
-    location: 'Rajasthan',
-    month: 'Nov-Dec',
-    duration: '6N/5D',
-    price: '₹25000',
-    rating: 4.8
-  },
-  {
-    id: 5,
-    title: 'Tour 5',
-    image: card5,
-    difficulty: 'Moderate',
-    tripName: 'River Rafting',
-    location: 'Rishikesh',
-    month: 'Nov-Dec',
-    duration: '3N/2D',
-    price: '₹15000',
-    rating: 4.3
-  },
-  {
-    id: 6,
-    title: 'Tour 6',
-    image: card6,
-    difficulty: 'Moderate',
-    tripName: 'Desert Safari',
-    location: 'Rajasthan',
-    month: 'Nov-Dec',
-    duration: '6N/5D',
-    price: '₹6999',
-    rating: 4.8
-  },
-  {
-    id: 7,
-    title: 'Tour 7',
-    image: card7,
-    difficulty: 'Easy to Moderate',
-    tripName: 'Mountain Adventure',
-    location: 'Himalayas',
-    month: 'Nov-Dec',
-    duration: '4N/3D',
-    price: '₹14999',
-    rating: 4.5
-  },
-  {
-    id: 8,
-    title: 'Tour 8',
-    image: card8,
-    difficulty: 'Moderate',
-    tripName: 'Forest Expedition',
-    location: 'Western Ghats',
-    month: 'Nov-Dec',
-    duration: '5N/4D',
-    price: '₹8999',
-    rating: 4.0
-  },
-  {
-    id: 9,
-    title: 'Tour 9',
-    image: card9,
-    difficulty: 'Moderate',
-    tripName: 'River Rafting',
-    location: 'Rishikesh',
-    month: 'Nov-Dec',
-    duration: '3N/2D',
-    price: '₹120000',
-    rating: 4.3
-  },
-  {
-    id: 10,
-    title: 'Tour 10',
-    image: card10,
-    difficulty: 'Moderate',
-    tripName: 'Forest Expedition',
-    location: 'Western Ghats',
-    month: 'Nov-Dec',
-    duration: '5N/4D',
-    price: '₹12000',
-    rating: 4.0
-  },
-  {
-    id: 11,
-    title: 'Tour 11',
-    image: card11,
-    difficulty: 'Easy to Moderate',
-    tripName: 'Mountain Adventure',
-    location: 'Himalayas',
-    month: 'Nov-Dec',
-    duration: '4N/3D',
-    price: '₹14000',
-    rating: 4.5
-  },
-  {
-    id: 12,
-    title: 'Tour 12',
-    image: card12,
-    difficulty: 'Moderate',
-    tripName: 'River Rafting',
-    location: 'Rishikesh',
-    month: 'Nov-Dec',
-    duration: '3N/2D',
-    price: '₹9999',
-    rating: 4.3
-  }
-  // Add more cards as needed
-]
+import { Link } from 'react-router-dom'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 const Carousel = () => {
+  const cardsData = useCards()
   const [currentIndex, setCurrentIndex] = useState(0)
   const cardsToShow = 4 // Number of cards to show at a time
 
@@ -250,6 +94,13 @@ const Carousel = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className='flex justify-center mt-8'>
+        <Link to='/best-treks'>
+          <button className='px-6 py-2 flex items-center bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75'>
+            View All <FaArrowRightLong className='ml-2' />
+          </button>
+        </Link>
       </div>
     </div>
   )
