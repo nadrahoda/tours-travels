@@ -57,3 +57,16 @@ body, html, #root, .App {
   
 }
 
+/* Disable autofill background color */
+input:-webkit-autofill, textarea:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+}
+
+/* Specific input fields styles for autofill */
+input:-webkit-autofill, textarea:-webkit-autofill {
+  background-color: transparent !important;
+  color: white !important;  /* Ensure text color remains white */
+  border: 1px solid #ccc !important;  /* Or use your custom border color */
+}

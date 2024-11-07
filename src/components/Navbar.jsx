@@ -48,11 +48,11 @@ const Navbar = () => {
             <div className='flex justify-end'>
               <div className='flex space-x-6 mb-2 text-xs'>
                 <a
-                  href='tel:+91123456789'
+                  href='tel:+919953786506'
                   className='hover:text-gray-400 flex items-center'
                 >
                   <FaPhoneAlt className='mr-2' />
-                  +91 123 456 789
+                  +91 9953786506
                 </a>
                 <button className='hover:text-gray-400 flex items-center'>
                   <FaUserPlus className='mr-2' />

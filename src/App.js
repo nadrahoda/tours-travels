@@ -9,6 +9,10 @@ import { CardsProvider } from './context/cardsContext';
 import BestTreks from './components/BestTreks';
 import States from './components/StatesCarousel';
 import Testimonial from './components/Testimonial';
+import WhyChooseUs from './components/WhyChooseUs';
+import FAQ from './components/FAQ';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 function AppContent() {
   const location = useLocation();
   
@@ -27,6 +31,10 @@ function AppContent() {
           <Carousel />
           <States/>
           <Testimonial/>
+          <WhyChooseUs/>
+          <FAQ/>
+          <Contact/>
+          <Footer/>
         </>
       )}
     </div>
