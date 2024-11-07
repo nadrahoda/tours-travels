@@ -20,7 +20,7 @@ const Carousel = () => {
     }, 3000) // Change slide every 3 seconds
 
     return () => clearInterval(intervalId)
-  }, [])
+  }, [cardsData.length])
 
   return (
     <div className='bg-gray-800 py-10'>
