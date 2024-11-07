@@ -13,6 +13,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Maharashtra from './components/ResultsPage/Maharashtra';
 function AppContent() {
   const location = useLocation();
   
@@ -21,11 +22,12 @@ function AppContent() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Hero />} />
-        <Route path="/best-treks" element={<BestTreks />} />
+        {/* <Route path="/best-treks" element={<BestTreks />} /> */}
+        <Route path='/results/:query' element={<Maharashtra/>}/>
       </Routes>
 
       {/* Conditionally render FilterTrips and Carousel based on the path */}
-      {location.pathname !== '/best-treks' && (
+      {!location.pathname.startsWith('/results/') && (
         <>
           <FilterTrips />
           <Carousel />

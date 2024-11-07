@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from 'react'
 import { FaLocationDot, FaRegClock } from 'react-icons/fa6'
 import { FaCalendarAlt } from 'react-icons/fa'
 import indiaLocations from '../india_locations.json'
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
+  const navigate = useNavigate();
   const videoRef = useRef(null)
   const [suggestions, setSuggestions] = useState([])
   const [inputValue, setInputValue] = useState('')
@@ -90,7 +92,8 @@ const Hero = () => {
 
   const handleSuggestionClick = suggestion => {
     setInputValue(suggestion)
-    setSuggestions([])
+    setSuggestions([]);
+    navigate(`/results/${suggestion}`);
   }
   const handleOptionClick = option => {
     setSelectedDayNight(option)
@@ -118,6 +121,10 @@ const Hero = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  const handleExploreClick = () => {
+    // Navigate to the result page with a selected query (e.g., Maharashtra)
+    navigate(`/results/${inputValue || 'Maharashtra'}`);  // Use inputValue for dynamic search
+  };
   return (
     <div className='relative w-full h-screen overflow-hidden hero'>
       <video
@@ -237,7 +244,7 @@ const Hero = () => {
             )}
           </div>
           {/* Explore Button */}
-          <button className='bg-blue-600 text-white rounded-lg px-4 py-2 text-sm h-full flex items-center justify-center w-1/5'>
+          <button className='bg-blue-600 text-white rounded-lg px-4 py-2 text-sm h-full flex items-center justify-center w-1/5' onClick={handleExploreClick}>
             Explore
           </button>
         </div>
