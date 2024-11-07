@@ -1,12 +1,10 @@
 import './App.css';
-import {useRef, useEffect} from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FilterTrips from './components/FilterTrips';
 import Carousel from './components/Carousel';
 import { CardsProvider } from './context/cardsContext';
-import BestTreks from './components/BestTreks';
 import States from './components/StatesCarousel';
 import Testimonial from './components/Testimonial';
 import WhyChooseUs from './components/WhyChooseUs';

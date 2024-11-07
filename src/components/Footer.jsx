@@ -11,16 +11,16 @@ const Footer = () => {
             <img src={logo} alt='Logo' className='w-24' />
           </div>
           <div className='flex space-x-4'>
-            <a href='#' className='text-xl'>
+            <a href='/' className='text-xl'>
               <FaFacebook />
             </a>
-            <a href='#' className='text-xl'>
+            <a href='/' className='text-xl'>
               <FaTwitter />
             </a>
-            <a href='#' className='text-xl'>
+            <a href='/' className='text-xl'>
               <FaInstagram />
             </a>
-            <a href='#' className='text-xl'>
+            <a href='/' className='text-xl'>
               <FaLinkedin />
             </a>
           </div>
@@ -29,19 +29,19 @@ const Footer = () => {
         {/* Second Column - Company Links */}
         <div className='flex flex-col space-y-3'>
           <h4 className='text-xl font-semibold'>Company</h4>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             About Us
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Contact Us
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Our Blogs
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Career With Us
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Payment Policy
           </a>
         </div>
@@ -49,19 +49,19 @@ const Footer = () => {
         {/* Third Column - Group Tours */}
         <div className='flex flex-col space-y-3'>
           <h4 className='text-xl font-semibold'>Group Tours</h4>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Backpacking Trips
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Treks
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Weekend Getaways
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Biking Trips
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Upcoming Trips
           </a>
         </div>
@@ -69,13 +69,13 @@ const Footer = () => {
         {/* Fourth Column - Customized Trips */}
         <div className='flex flex-col space-y-3'>
           <h4 className='text-xl font-semibold'>Customized Trips</h4>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Corporate Tours
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             Domestic Tours
           </a>
-          <a href='#' className='text-gray-400 hover:text-white'>
+          <a href='/' className='text-gray-400 hover:text-white'>
             International Getaways
           </a>
         </div>

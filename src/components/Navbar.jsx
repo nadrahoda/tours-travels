@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import {
   FaPhoneAlt,
   FaUserPlus,
-  FaBlog,
-  FaInfoCircle,
   FaChevronDown,
   FaChevronUp
 } from 'react-icons/fa'
@@ -58,14 +56,14 @@ const Navbar = () => {
                   <FaUserPlus className='mr-2' />
                   Travel Agent? Join Us
                 </button>
-                <a href='#' className='hover:text-gray-400 flex items-center'>
+                <a href='/' className='hover:text-gray-400 flex items-center'>
                   Blogs
                 </a>
-                <a href='#' className='hover:text-gray-400 flex items-center'>
+                <a href='/' className='hover:text-gray-400 flex items-center'>
                   About Us
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='bg-blue-600 px-4 py-2 rounded hover:bg-blue-700'
                 >
                   Login
@@ -87,7 +85,7 @@ const Navbar = () => {
                     onMouseLeave={() => hideDropdown(item.name)}
                   >
                     <a
-                      href='#'
+                      href='/'
                       className='hover:text-gray-400 flex items-center'
                       onClick={e => {
                         e.preventDefault()
@@ -133,7 +131,7 @@ const Navbar = () => {
                     onMouseLeave={() => hideDropdown(item.name)}
                   >
                     <a
-                      href='#'
+                      href='/'
                       className='hover:text-gray-400 flex items-center'
                       onClick={e => {
                         e.preventDefault()

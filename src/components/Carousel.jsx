@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCards } from '../context/cardsContext'
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaClock } from 'react-icons/fa6'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { FaArrowRightLong } from 'react-icons/fa6'
 
 const Carousel = () => {
-  const cardsData = useCards()
+  const cardsData = useCards();
   const [currentIndex, setCurrentIndex] = useState(0)
   const cardsToShow = 4 // Number of cards to show at a time
 

@@ -4,7 +4,7 @@ import img2 from '../assets/trip2.jpg'
 import img3 from '../assets/trip3.jpg'
 import img4 from '../assets/trip4.jpg'
 import img5 from '../assets/trip5.jpg'
-import { FaUserCheck, FaUsers, FaMotorcycle, FaGlobe, FaPlane} from 'react-icons/fa6'
+import { FaUserCheck, FaUsers, FaMotorcycle, FaPlane} from 'react-icons/fa6'
 import { FaMapMarkedAlt } from 'react-icons/fa'
 import { MdEditNote } from "react-icons/md";
 

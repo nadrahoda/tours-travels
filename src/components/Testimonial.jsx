@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import profile from '../assets/profile.jpg'
-import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri'
+import { RiDoubleQuotesL } from 'react-icons/ri'
 
 const testimonialsData = [
   {

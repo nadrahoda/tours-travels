@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { IoLocationSharp } from 'react-icons/io5'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import state1 from '../assets/Andaman.jpg'
 import state2 from '../assets/Arunachal.jpg'
 import state3 from '../assets/Goa.jpg'
