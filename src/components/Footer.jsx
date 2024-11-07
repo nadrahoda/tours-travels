@@ -6,11 +6,11 @@ const Footer = () => {
     <footer className='bg-gray-800 text-white pt-10'>
       <div className='max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-8'>
         {/* First Column - Logo and Social Icons */}
-        <div className='flex flex-col items-start space-y-4'>
+        <div className='flex flex-col justify-center space-y-4'>
           <div className='flex items-center space-x-3'>
-            <img src={logo} alt='Logo' className='w-24' />
+            <img src={logo} alt='Logo' className='w-36' />
           </div>
-          <div className='flex space-x-4'>
+          <div className='flex space-x-4 items-center pl-2'>
             <a href='/' className='text-xl'>
               <FaFacebook />
             </a>
